@@ -33,6 +33,11 @@ class _HomePageState extends State<HomePage> {
     'Target Up & Up 1000': 188.05
   };
 
+  static const Map<String, double> paperTest = {
+    'test 1:': 133.33,
+    'test 2': 122.22
+  };
+
   final Map<int, Widget> rollSegmentNumber = const <int, Widget>{
     4: Text('4'),
     6: Text('6'),
