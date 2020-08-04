@@ -116,6 +116,9 @@ class _HomePageState extends State<HomePage> {
                         onValueChanged: (int val) {
                           setState(() {
                             paperTypeNumber = val;
+                            dropDownValue = null;
+                            rollNumber = 4;
+                            pricePackage = null;
                             if (val == 0) {
                               dropDownMap = brandRoll;
                             } else {
