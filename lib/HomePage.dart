@@ -60,6 +60,8 @@ class _HomePageState extends State<HomePage> {
     1: Text('Paper Towel')
   };
 
+  Map dropDownMap = brandRoll;
+
   void calculateValue() {
     setState(() {
       if (weightTypeNumber == 0) {
@@ -104,7 +106,6 @@ class _HomePageState extends State<HomePage> {
                         onValueChanged: (int val) {
                           setState(() {
                             weightTypeNumber = val;
-                            print('Weight type number $weightTypeNumber');
                           });
                         },
                         groupValue: weightTypeNumber,
@@ -115,7 +116,11 @@ class _HomePageState extends State<HomePage> {
                         onValueChanged: (int val) {
                           setState(() {
                             paperTypeNumber = val;
-                            print('Weight type number $paperTypeNumber');
+                            if (val == 0) {
+                              dropDownMap = brandRoll;
+                            } else {
+                              dropDownMap = paperTest;
+                            }
                           });
                         },
                         groupValue: paperTypeNumber,
@@ -142,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                       iconEnabledColor: Colors.deepOrange[300],
                       hint: Text('Choose toilet paper brand'),
                       isExpanded: true,
-                      items: brandRoll
+                      items: dropDownMap
                           .map((brand, weight) {
                             return MapEntry(
                                 brand,
