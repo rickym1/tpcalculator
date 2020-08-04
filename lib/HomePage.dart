@@ -62,6 +62,8 @@ class _HomePageState extends State<HomePage> {
 
   Map dropDownMap = brandRoll;
 
+  var _controller = TextEditingController();
+
   void calculateValue() {
     setState(() {
       if (weightTypeNumber == 0) {
@@ -118,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                             paperTypeNumber = val;
                             dropDownValue = null;
                             rollNumber = 4;
-                            pricePackage = null;
+                            _controller.clear();
                             if (val == 0) {
                               dropDownMap = brandRoll;
                             } else {
@@ -168,8 +170,6 @@ class _HomePageState extends State<HomePage> {
                       }),
                 ),
                 Padding(padding: const EdgeInsets.only(top: 30)),
-                //TextField(textAlign: TextAlign.center,keyboardType: TextInputType.number, onChanged: (val) {rollNumber = double.parse(val);},
-                //decoration: InputDecoration(hintText: 'Enter #rolls in package', hintStyle: TextStyle(color: Colors.blueGrey[200]),border: InputBorder.none,enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(30),borderSide: BorderSide(color: Colors.black)))),
                 Text('Choose # of rolls in package:',
                     style:
                         TextStyle(fontWeight: FontWeight.normal, fontSize: 15)),
@@ -188,6 +188,7 @@ class _HomePageState extends State<HomePage> {
                 TextField(
                   textAlign: TextAlign.center,
                   keyboardType: TextInputType.number,
+                  controller: _controller,
                   onChanged: (val) {
                     pricePackage = double.parse(val);
                   },
