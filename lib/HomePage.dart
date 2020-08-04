@@ -120,6 +120,7 @@ class _HomePageState extends State<HomePage> {
                             paperTypeNumber = val;
                             dropDownValue = null;
                             rollNumber = 4;
+                            priceRounded = 0;
                             _controller.clear();
                             if (val == 0) {
                               dropDownMap = brandRoll;
