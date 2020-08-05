@@ -206,7 +206,7 @@ class _HomePageState extends State<HomePage> {
                   minWidth: 150,
                   height: 50,
                   child: RaisedButton(
-                      onPressed: calculateValue,
+                      onPressed: null,
                       child: Text(
                         'Calculate',
                         style: TextStyle(fontSize: 20),
