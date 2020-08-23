@@ -65,25 +65,28 @@ class _HomePageState extends State<HomePage> {
   var _controller = TextEditingController();
 
   void calculateValue() {
-    setState(() {
-      if (weightTypeNumber == 0) {
-        gramsBrand = dropDownValue;
-        lbPerRoll = gramsBrand * 0.0022;
-        lbPerPackage = rollNumber * lbPerRoll;
-        lbFactor = 1 / lbPerPackage;
-        pricePerLb = lbFactor * pricePackage;
-        priceRounded = double.parse((pricePerLb).toStringAsFixed(2));
-        weightName = 'lb';
-      } else {
-        gramsBrand = dropDownValue;
-        gramsPerPackage = rollNumber * gramsBrand;
-        kgPerPackage = gramsPerPackage / 1000;
-        kgFactor = 1 / kgPerPackage;
-        pricePerKg = kgFactor * pricePackage;
-        priceRounded = double.parse((pricePerKg).toStringAsFixed(2));
-        weightName = 'kg';
-      }
-    });
+    if (dropDownValue == null) {
+    } else {
+      setState(() {
+        if (weightTypeNumber == 0) {
+          gramsBrand = dropDownValue;
+          lbPerRoll = gramsBrand * 0.0022;
+          lbPerPackage = rollNumber * lbPerRoll;
+          lbFactor = 1 / lbPerPackage;
+          pricePerLb = lbFactor * pricePackage;
+          priceRounded = double.parse((pricePerLb).toStringAsFixed(2));
+          weightName = 'lb';
+        } else {
+          gramsBrand = dropDownValue;
+          gramsPerPackage = rollNumber * gramsBrand;
+          kgPerPackage = gramsPerPackage / 1000;
+          kgFactor = 1 / kgPerPackage;
+          pricePerKg = kgFactor * pricePackage;
+          priceRounded = double.parse((pricePerKg).toStringAsFixed(2));
+          weightName = 'kg';
+        }
+      });
+    }
   }
 
   @override
@@ -108,6 +111,7 @@ class _HomePageState extends State<HomePage> {
                         onValueChanged: (int val) {
                           setState(() {
                             weightTypeNumber = val;
+                            calculateValue();
                           });
                         },
                         groupValue: weightTypeNumber,
@@ -127,6 +131,7 @@ class _HomePageState extends State<HomePage> {
                             } else {
                               dropDownMap = paperTest;
                             }
+                            calculateValue();
                           });
                         },
                         groupValue: paperTypeNumber,
@@ -167,6 +172,7 @@ class _HomePageState extends State<HomePage> {
                       onChanged: (double newValue) {
                         setState(() {
                           dropDownValue = newValue;
+                          calculateValue();
                         });
                       }),
                 ),
@@ -181,6 +187,7 @@ class _HomePageState extends State<HomePage> {
                   onValueChanged: (int val) {
                     setState(() {
                       rollNumber = val;
+                      calculateValue();
                     });
                   },
                   groupValue: rollNumber,
@@ -192,6 +199,7 @@ class _HomePageState extends State<HomePage> {
                   controller: _controller,
                   onChanged: (val) {
                     pricePackage = double.parse(val);
+                    calculateValue();
                   },
                   decoration: InputDecoration(
                       hintText: 'Enter \$ package',
@@ -201,19 +209,6 @@ class _HomePageState extends State<HomePage> {
                           borderRadius: BorderRadius.circular(30),
                           borderSide: BorderSide(color: Colors.black))),
                 ),
-                Padding(padding: const EdgeInsets.only(top: 70)),
-                ButtonTheme(
-                  minWidth: 150,
-                  height: 50,
-                  child: RaisedButton(
-                      onPressed: null,
-                      child: Text(
-                        'Calculate',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      textColor: Colors.white,
-                      color: Colors.tealAccent[700]),
-                )
               ],
             ),
           ]),
