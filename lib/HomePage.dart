@@ -34,14 +34,16 @@ class _HomePageState extends State<HomePage> {
   static const Map<String, double> brandRoll = {
     'Amazon Presto! Ultra Soft Mega': 132.92,
     'Charmin Ultra Strong Mega': 122.52,
+    'Charmin Essentials Mega 2-ply 352 sheets': 132.29,
     'Scott 1000': 163.62,
     'Seventh Generation': 100.44,
     'Target Up & Up 1000': 188.05
   };
 
   static const Map<String, double> paperTest = {
-    'test 1:': 133.33,
-    'test 2': 122.22
+    'Bounty Essentials 2-ply 40 sheets': 128.09,
+    'Scott Double 1-ply 110 sheets': 173.56,
+    'Seventh Generation 2-ply 140 sheets': 244.95
   };
 
   final Map<int, Widget> rollSegmentNumber = const <int, Widget>{
