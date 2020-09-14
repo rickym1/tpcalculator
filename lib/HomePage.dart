@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/cupertino.dart';
 
+import 'package:calculator_app/ad_manager.dart';
+
+import 'package:firebase_admob/firebase_admob.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  BannerAd _bannerAd;
+
   double dropDownValue;
   double pricePackage = 0,
       gramsBrand = 112,
@@ -87,6 +93,29 @@ class _HomePageState extends State<HomePage> {
         }
       });
     }
+  }
+
+  void _loadBannerAd() {
+    _bannerAd
+      ..load()
+      ..show(anchorType: AnchorType.bottom);
+  }
+
+  @override
+  void initState() {
+    FirebaseAdMob.instance.initialize(appId: AdManager.appId);
+
+    _bannerAd =
+        BannerAd(adUnitId: AdManager.bannerAdUnitId, size: AdSize.banner);
+
+    _loadBannerAd();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _bannerAd?.dispose();
+    super.dispose();
   }
 
   @override
