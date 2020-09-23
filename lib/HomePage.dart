@@ -155,6 +155,7 @@ class _HomePageState extends State<HomePage> {
                             paperTypeNumber = val;
                             dropDownValue = null;
                             rollNumber = 4;
+                            pricePackage = 0;
                             priceRounded = 0;
                             _controller.clear();
                             if (val == 0) {
