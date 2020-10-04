@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:calculator_app/ad_manager.dart';
 
-import 'package:firebase_admob/firebase_admob.dart';
+import 'package:admob_flutter/admob_flutter.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  BannerAd _bannerAd;
+  final advert = AdManager();
 
   double dropDownValue;
   double pricePackage = 0,
@@ -97,27 +97,10 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  void _loadBannerAd() {
-    _bannerAd
-      ..load()
-      ..show(anchorType: AnchorType.bottom);
-  }
-
   @override
   void initState() {
-    FirebaseAdMob.instance.initialize(appId: AdManager.appId);
-
-    _bannerAd =
-        BannerAd(adUnitId: AdManager.bannerAdUnitId, size: AdSize.banner);
-
-    _loadBannerAd();
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    _bannerAd?.dispose();
-    super.dispose();
+    Admob.initialize(testDeviceIds: [AdManager.getappId()]);
   }
 
   @override
@@ -224,7 +207,11 @@ class _HomePageState extends State<HomePage> {
                   },
                   groupValue: rollNumber,
                 ),
-                Padding(padding: const EdgeInsets.only(top: 40)),
+                Padding(padding: const EdgeInsets.only(top: 10)),
+                AdmobBanner(
+                    adUnitId: AdManager.getbannerAdUnitId(),
+                    adSize: AdmobBannerSize.LARGE_BANNER),
+                Padding(padding: const EdgeInsets.only(top: 10)),
                 TextField(
                   textAlign: TextAlign.center,
                   keyboardType: TextInputType.number,

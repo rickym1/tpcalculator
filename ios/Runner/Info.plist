@@ -43,5 +43,9 @@
 	<false/>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-2650722762036011~3385745541</string>
+    <key>io.flutter.embedded_views_preview</key>
+    <true/>
+    <key>NSUserTrackingUsageDescription</key>
+    <string>This identifieer will be used to deliver personalized ads to you.</string>
 </dict>
 </plist>
