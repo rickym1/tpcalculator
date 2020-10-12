@@ -208,13 +208,9 @@ class _HomePageState extends State<HomePage> {
                   groupValue: rollNumber,
                 ),
                 Padding(padding: const EdgeInsets.only(top: 10)),
-                AdmobBanner(
-                    adUnitId: AdManager.getbannerAdUnitId(),
-                    adSize: AdmobBannerSize.LARGE_BANNER),
-                Padding(padding: const EdgeInsets.only(top: 10)),
                 TextField(
                   textAlign: TextAlign.center,
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.numberWithOptions(decimal: true),
                   controller: _controller,
                   onChanged: (val) {
                     pricePackage = double.parse(val);
@@ -228,6 +224,9 @@ class _HomePageState extends State<HomePage> {
                           borderRadius: BorderRadius.circular(30),
                           borderSide: BorderSide(color: Colors.black))),
                 ),
+                AdmobBanner(
+                    adUnitId: AdManager.getbannerAdUnitId(),
+                    adSize: AdmobBannerSize.LARGE_BANNER),
               ],
             ),
           ]),
