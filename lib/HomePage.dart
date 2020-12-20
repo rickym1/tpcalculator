@@ -97,6 +97,20 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  void reset() {
+    setState(() {
+      dropDownValue = null;
+      rollNumber = 4;
+      pricePackage = 0;
+      priceRounded = 0;
+      _controller.clear();
+      FocusScopeNode currentFocus = FocusScope.of(context);
+      if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+        FocusManager.instance.primaryFocus.unfocus();
+      }
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -106,8 +120,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:
-            AppBar(title: Text('Find the toilet paper with the best value!')),
+        appBar: AppBar(title: Text('Find the best value!')),
         resizeToAvoidBottomPadding: false,
         body: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -150,7 +163,15 @@ class _HomePageState extends State<HomePage> {
                           });
                         },
                         groupValue: paperTypeNumber,
-                      )
+                      ),
+                      RaisedButton(
+                          child: Text("Reset"),
+                          color: Colors.white,
+                          textColor: Colors.black87,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                              side: BorderSide(color: Colors.black54)),
+                          onPressed: () => reset())
                     ],
                   ),
                 ],
@@ -171,7 +192,7 @@ class _HomePageState extends State<HomePage> {
                       icon: Icon(Icons.touch_app),
                       iconSize: 30,
                       iconEnabledColor: Colors.deepOrange[300],
-                      hint: Text('Choose toilet paper brand'),
+                      hint: Text('Tap here to choose a brand'),
                       isExpanded: true,
                       items: dropDownMap
                           .map((brand, weight) {
