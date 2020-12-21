@@ -32,18 +32,24 @@ class _HomePageState extends State<HomePage> {
   var weightName = 'lb';
 
   static const Map<String, double> brandRoll = {
-    'Amazon Presto! Ultra Soft Mega': 132.92,
-    'Charmin Ultra Strong Mega': 122.52,
+    '"365" 2-ply 260 sheets': 97.06,
+    'Amazon Presto! Ultra Soft Mega 2-ply 308 sheets': 132.92,
+    'Charmin Ultra Strong Mega 2-ply': 122.52,
     'Charmin Essentials Mega 2-ply 352 sheets': 132.29,
-    'Scott 1000': 163.62,
-    'Seventh Generation': 100.44,
-    'Target Up & Up 1000': 188.05
+    'Quilted Northern Ultra Plush Mega 3-ply 284 sheets': 152.85,
+    'Scott 1000 1-ply': 163.62,
+    'Scott Comfort Plus Mega 1-ply 462 sheets': 159.12,
+    'Seventh Generation Whitened 2-ply 240 sheets': 100.44,
+    'Seventh Generation Unbleached 2-ply 400 sheets': 121.17,
+    'Up & Up "1000" 1-ply': 188.05,
+    'Virtue 2-ply 230 sheets': 69.52
   };
 
   static const Map<String, double> paperTest = {
     'Bounty Essentials 2-ply 40 sheets': 128.09,
     'Scott Double 1-ply 110 sheets': 173.56,
-    'Seventh Generation 2-ply 140 sheets': 244.95
+    'Seventh Generation 2-ply 140 sheets': 244.95,
+    'Smartly 2-ply 100 sheets': 197.70
   };
 
   final Map<int, Widget> rollSegmentNumber = const <int, Widget>{
