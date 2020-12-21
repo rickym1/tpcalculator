@@ -187,7 +187,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                    padding: EdgeInsets.fromLTRB(0, 40, 0, 40),
+                    padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
                     child: Text('\$$priceRounded/$weightName',
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 60))),
@@ -251,6 +251,7 @@ class _HomePageState extends State<HomePage> {
                           borderRadius: BorderRadius.circular(30),
                           borderSide: BorderSide(color: Colors.black))),
                 ),
+                Padding(padding: const EdgeInsets.only(top: 30)),
                 AdmobBanner(
                     adUnitId: AdManager.getbannerAdUnitId(),
                     adSize: AdmobBannerSize.LARGE_BANNER),
