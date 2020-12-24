@@ -33,15 +33,22 @@ class _HomePageState extends State<HomePage> {
 
   static const Map<String, double> brandRoll = {
     '"365" 2-ply 260 sheets': 97.06,
-    'Amazon Presto! Ultra Soft Mega 2-ply 308 sheets': 132.92,
-    'Charmin Ultra Strong Mega 2-ply': 122.52,
+    'Presto! Ultra Soft Mega 2-ply 308 sheets': 132.92,
+    'Angel Soft Mega 2-ply 429 sheets': 166.05,
     'Charmin Essentials Mega 2-ply 352 sheets': 132.29,
+    'Charmin Ultra Gentle Mega 2-ply 286 sheets': 137.99,
+    'Charmin Ultra Soft Mega 2-ply 264 sheets': 136.44,
+    'Charmin Ultra Strong Mega 2-ply 264 sheets': 122.52,
+    'Cottonelle Ultra Comfort Care Mega 2-ply 284 sheets': 132.74,
+    'Cottonelle Ultra Clean Care Mega 1-ply 340 sheets': 148.98,
     'Quilted Northern Ultra Plush Mega 3-ply 284 sheets': 152.85,
-    'Scott 1000 1-ply': 163.62,
+    'Quilted Northern Ultra Soft & Strong Mega 2-ply 328 sheets': 147.40,
+    'Scott "1000" 1-ply 1000 sheets': 163.62,
     'Scott Comfort Plus Mega 1-ply 462 sheets': 159.12,
-    'Seventh Generation Whitened 2-ply 240 sheets': 100.44,
     'Seventh Generation Unbleached 2-ply 400 sheets': 121.17,
-    'Up & Up "1000" 1-ply': 188.05,
+    'Seventh Generation Whitened 2-ply 240 sheets': 100.44,
+    'Up & Up "1000" 1-ply 1000 sheets': 188.05,
+    'Up & Up Soft and Strong 2-ply 484 sheets': 184.44,
     'Virtue 2-ply 230 sheets': 69.52
   };
 
