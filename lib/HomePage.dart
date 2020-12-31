@@ -133,7 +133,29 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Find the best value!')),
+        appBar: AppBar(
+          title: Text('Find the best value!'),
+          actions: <Widget>[
+            IconButton(
+                icon: Icon(Icons.info),
+                onPressed: () => showDialog(
+                    context: context,
+                    barrierDismissible: true,
+                    builder: (BuildContext context) => CupertinoAlertDialog(
+                          title: const Text('Disclaimer'),
+                          content: Text(
+                              'All calculations are approximations only. Contact the manufacturer for official data.'),
+                          actions: <Widget>[
+                            CupertinoDialogAction(
+                              child: Text('Close'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            )
+                          ],
+                        )))
+          ],
+        ),
         resizeToAvoidBottomPadding: false,
         body: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -212,9 +234,10 @@ class _HomePageState extends State<HomePage> {
                             return MapEntry(
                                 brand,
                                 DropdownMenuItem<double>(
-                                  value: weight,
-                                  child: Text(brand),
-                                ));
+                                    value: weight,
+                                    child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(brand))));
                           })
                           .values
                           .toList(),
